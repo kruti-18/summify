@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.main {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.main:before {
+  background: #060606;
+  position: absolute;
+  content: "";
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.main:after {
+  content: "";
+  background-image: url("/src/assets/grid1.png");
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.8;
+  filter: invert(1);
+}
+
+.gradient {
+  height: fit-content;
+  z-index: 3;
+  width: 100%;
+  max-width: 640px;
+  background-image: radial-gradient(
+      at 27% 37%,
+      #17662c 0px,
+      transparent 0%
+    ),
+    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, #17662c 0px, transparent 100%),
+    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, #17662c 0px, transparent 10%),
+    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, #17662c 0px, transparent 50%);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  filter: blur(100px) saturate(250%);
+  top: 90px;
+  opacity: 0.16;
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+
+  .summary_box p {
+    @apply text-xs tracking-wide;
+  }
+
+  .footer-comp { 
+    padding: 1px !important;
+    width: 100% !important;
+    flex-direction: column;
+  }
+  .footer-copyright h3 {
+    font-size: 1rem !important;
+  }
+  .footer-social { 
+    font-size: 1rem !important;
+  }
+}
+
+/* Tailwind Styles */
+
+button {
+  @apply transition-all ease-in-out
+}
+
+.app {
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+}
+
+.black_btn {
+  @apply transition-all rounded-lg font-inter font-medium border-2 border-green-600 outline-none py-1.5 px-5 text-sm text-gray-100 hover:bg-green-600 hover:text-gray-100 hover:scale-95;
+}
+
+.del_btn {
+  @apply transition-all rounded-md bg-green-900 p-1 border border-green-400 hover:border-green-300 hover:scale-95; 
+}
+
+.del_btn img {
+  @apply transition-all w-8 brightness-100 hover:brightness-90;
+}
+
+.head_text {
+  @apply mt-5 text-5xl font-kanit font-bold leading-[1.15] text-gray-200 sm:text-5xl text-center;
+}
+
+.green_gradient {
+  @apply bg-gradient-to-r text-6xl from-green-300 via-green-400 to-green-600 bg-clip-text text-transparent;
+}
+
+.desc {
+  @apply mt-5 font-kanit font-light italic text-lg text-gray-500 sm:text-xl text-center max-w-2xl;
+}
+
+.url_input {
+  @apply block w-full rounded-md border border-green-400 text-gray-100 bg-green-900 py-2.5 pl-10 pr-12 text-sm shadow-lg font-kanit font-normal focus:border-green-600 focus:outline-none focus:ring-0;
+}
+
+.submit_btn {
+  @apply hover:border-green-300 hover:scale-95 hover:text-gray-700 absolute inset-y-0 right-0 my-1 mr-1.5 flex w-12 items-center justify-center rounded border border-green-400 font-sans text-sm font-medium text-gray-900;
+}
+
+.link_card {
+  @apply p-3 flex justify-start items-center flex-row bg-gray-950/20 border border-gray-600 gap-3 rounded-lg cursor-pointer shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.1)] backdrop-blur;
+}
+
+.copy_btn {
+  @apply w-7 h-7 rounded-full bg-green-800 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+}
+
+.blue_gradient {
+  @apply font-bold bg-gradient-to-r from-green-300 via-green-400 to-green-600 bg-clip-text text-transparent;
+}
+
+.summary_box {
+  @apply rounded-xl border border-gray-400 bg-white/5 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-4 mb-20;
+}
+
+.footer-comp {
+  @apply fixed bottom-0 border-t-2 border-gray-500 rounded-t-xl flex justify-evenly items-center w-3/4 p-3 backdrop-blur shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.01)];
+}
+
+
+.footer-copyright h3 {
+  @apply text-gray-300 text-xl font-kanit font-light;
+}
+
+.footer-social {
+  @apply flex items-center text-gray-300 text-xl font-kanit font-light;
+}
+
+.footer-social i {
+  @apply ml-3 text-xl bg-gradient-to-r from-green-300 via-green-400 to-green-600 bg-clip-text text-transparent;
+}
+
+
+/* Scroll bar css */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #060606;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6e6e6e;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #505050;
+}
